@@ -1,0 +1,123 @@
+:root{
+  --brand:#1a2a3a;
+  --muted:#6c757d;
+  --card-bg:#ffffff;
+  --glass: rgba(255,255,255,0.6);
+  --transition: 250ms ease;
+}
+
+/* ---------- Global ---------- */
+*{box-sizing:border-box}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin:0;
+  color: #222;
+  background: #f8f9fb;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Navbar brand mark */
+.brand-mark{
+  width:36px;height:36px;background:linear-gradient(135deg,var(--brand),#3b5566);
+  box-shadow: 0 2px 8px rgba(26,42,58,0.12);
+}
+
+/* ---------- HERO ---------- */
+.hero-section{
+  min-height:55vh;
+  background-image: linear-gradient(180deg, rgba(26,42,58,0.72), rgba(26,42,58,0.52)), url("https://via.placeholder.com/1600x900?text=VCET+Banner");
+  background-size:cover;background-position:center;
+  display:flex;align-items:center;justify-content:center;
+  padding:4rem 0;
+}
+
+/* section title */
+.section-title{color:var(--brand);font-weight:700;margin-bottom:1rem}
+.lead{color:#434a52}
+
+/* ---------- cards / info ---------- */
+.info-card, .dept-card, .faculty-card, .infra-card, .management-card{
+  background:var(--card-bg);
+  border-radius:10px;
+  box-shadow: 0 6px 18px rgba(25,40,50,0.06);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.info-card:hover, .dept-card:hover, .faculty-card:hover, .infra-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(25,40,50,0.08);
+}
+
+.info-card h5, .dept-card h5{color:var(--brand);font-weight:600}
+.dept-icon{color:var(--brand);opacity:0.95}
+
+/* timeline */
+.timeline{
+  position:relative;
+  padding-left:1rem;
+}
+.timeline:before{
+  content:"";
+  position:absolute;
+  left:18px;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:linear-gradient(#f0f0f0,#e6e6e6);
+  border-radius:3px;
+}
+.timeline-item{position:relative;padding:1rem 1rem 1rem 3rem}
+.timeline-dot{
+  position:absolute;left:8px;top:1rem;width:20px;height:20px;border-radius:50%;
+  background:var(--brand);box-shadow:0 2px 8px rgba(26,42,58,0.2);
+}
+
+/* gallery thumbnail */
+.gallery-item{cursor:pointer;transition:transform var(--transition)}
+.gallery-item:hover{transform:scale(1.02);}
+
+/* faculty images */
+.faculty-card img{width:80px;height:80px;object-fit:cover;}
+
+/* management */
+.management-card img{width:110px;height:110px;object-fit:cover;}
+
+/* badges / boxes */
+.badge-box{background:#fff;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,0.06);}
+
+/* placement chart container */
+#placementsChart{background:#fff;padding:1rem;border-radius:10px;box-shadow:0 6px 18px rgba(25,40,50,0.06)}
+
+/* contact map wrapper */
+.map-wrapper{height:400px;}
+
+/* footer */
+footer{font-size:0.95rem}
+
+/* ---------- Dark mode ---------- */
+body.dark{
+  background:#0b0f14;color:#e6eef7;
+}
+body.dark .hero-section{background-image: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("https://via.placeholder.com/1600x900?text=VCET+Banner")}
+body.dark .info-card, body.dark .dept-card, body.dark .faculty-card, body.dark .infra-card{background:#0e1620;color:#dbe9ff}
+body.dark .badge-box{background:#081219}
+body.dark .navbar-light{background:#061018}
+body.dark footer{background:#061018}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width:767px){
+  .hero-section{padding:3rem 1rem}
+  .hero-section h1{font-size:1.6rem}
+}
+
+/* subtle animations */
+.section-title, .info-card, .dept-card, .faculty-card, .infra-card {opacity:0; transform: translateY(10px); animation:fadeInUp .6s forwards}
+.section-title{animation-delay:0.05s}
+.info-card{animation-delay:0.08s}
+.dept-card{animation-delay:0.10s}
+.faculty-card{animation-delay:0.12s}
+.infra-card{animation-delay:0.14s}
+
+@keyframes fadeInUp{
+  to{opacity:1; transform:none}
+}
